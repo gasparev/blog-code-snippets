@@ -1,0 +1,12 @@
+- name: Docker build, test, push pipeline
+  hosts: localhost
+  tasks:
+    - name: build
+      shell: echo "I'm building"
+    - name: test
+      import_role:
+        name: docker-unit-test
+      vars:
+        docker_image: docker-unit-test
+    - name: push
+      shell: echo "pushing"
