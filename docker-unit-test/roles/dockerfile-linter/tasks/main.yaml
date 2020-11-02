@@ -1,0 +1,5 @@
+- name: Run hadolint on Dockerfile
+  shell: |
+    docker run --rm -i \
+      -v "{{ role_path }}/files/hadolint.yaml":/root/.config/hadolint.yaml hadolint/hadolint \
+      < {{ dockerfile_name }}
